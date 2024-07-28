@@ -1,7 +1,14 @@
 import React from "react";
-import Logo from "../assets/images/logo__tuyu.png";
 
+// Import de imagens
+import Logo from "../assets/images/logo__tuyu.png";
+import Hamburgue from "../assets/images/ico_menu.png";
+
+// Import dos icon do Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import { faHeadphones } from "@fortawesome/free-solid-svg-icons";
+
 import {
   faTwitter,
   faInstagram,
@@ -11,9 +18,6 @@ import {
   faWeibo,
   faBilibili,
 } from "@fortawesome/free-brands-svg-icons";
-
-import { faHeadphones } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 library.add(
   faTwitter,
@@ -26,29 +30,21 @@ library.add(
   faHeadphones
 );
 
+//import dos arquivos do css e script
 import useScroll from "../script/script";
-import "../style/fonts.css";
 import "../style/Header.css";
 
 const Header = () => {
-  const scrolled = useScroll(1920); // Variável que armazena até quantos PX ela ativara.
+  const scrolled = useScroll(1000); 
 
   return (
-    <header id="header">
+    <header className={scrolled ? "header_activate" : null} id="header">
       <div className="header__content">
         <div className="header__logo">
-          <a
-            href="/"
-            className={
-              scrolled // Retorna um valor de uma condição de um valor Booleano, " True or False ". ? = True, : = False.
-                ? "scrolled"
-                : "header__logo-img-link"
-            }
-          >
+          <a href="/" className="header__logo-img-link">
             <img src={Logo} alt="Logo" className="header__logo-img" />
           </a>
         </div>
-
         <nav className="header__navegation">
           <ul className="header__navegation-list">
             <li className="header__navegation-item">
@@ -102,10 +98,16 @@ const Header = () => {
                 <FontAwesomeIcon icon={["fab", "bilibili"]} />
               </a>
             </li>
-            <li className="header__navegation-lang lang">
+            
+            <li className="header__lang lang">
               <a href="/">JP</a>
               <span>|</span>
-              <p>ENG</p>
+              <p>EN</p>
+            </li>
+            <li className="header__navegation-button">
+              <a href="/">
+                <img src={Hamburgue} alt="" />
+              </a>
             </li>
           </ul>
         </nav>
