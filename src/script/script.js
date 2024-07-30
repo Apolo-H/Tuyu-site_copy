@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useScroll = (scrollPoint = 200) => {
+const useScroll = (scrollPoint = 0) => {
   const [scrolled, setScrolled] = useState(true);
 
   useEffect(() => {

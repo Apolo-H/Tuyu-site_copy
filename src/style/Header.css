@@ -1,19 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-#header {
+header {
     position: fixed;
     width: 100%;
     height: 80px;
     z-index: 1000;
 }
 
-#header::after {
+header::after {
     content: "";
     position: absolute;
     display: block;
     width: 100%;
     height: 100%;
-    background-image: url(../assets/images/header_back.png);
+    background-image: url(/public/header_back.png);
     background-size: auto 100%;
     top: 0;
     left: 0;
@@ -25,8 +25,12 @@
 .header_activate .lang,
 .header_activate .header__logo,
 .header_activate .header__navegation-button {
-    filter: brightness(2) hue-rotate(-25deg);
+    filter: brightness(2.1) hue-rotate(-25deg);
     transition: 0.5s ease;
+}
+
+.header_activate::after{
+    opacity: 1;
 }
 
 :hover:where(.header__logo, .header__lang a,
@@ -35,23 +39,9 @@
     transition: 0.5s ease;
 }
 
-.header__navegation-item:hover{
+.header__navegation-item:hover {
     transform: scale(1.2);
     transition: 0.5s ease;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 0.5;
-    }
-
-    100% {
-        opacity: 1;
-    }
 }
 
 .header__content {
@@ -67,7 +57,10 @@
     display: block;
     z-index: 100;
     margin-left: 0.5%;
+    width: 75%;
+    max-width: 135px;
     transition: 0.5s ease;
+    animation: fadeIn 1s ;
 }
 
 .header__logo a {
@@ -76,7 +69,7 @@
 }
 
 .header__logo-img {
-    width: 127px;
+    width: 100%;
     height: auto;
     transition: 0.5s ease;
 }
@@ -91,6 +84,7 @@
     display: inline-flex;
     align-items: baseline;
     margin-left: auto;
+    animation: fadeIn 1s ;
 }
 
 .header__navegation-item {
@@ -99,7 +93,6 @@
     text-align: center;
     margin: 0 0.8rem;
     transition: 0.5s ease;
-    animation: fadeIn 1.5s linear;
 }
 
 .header__navegation-item a {
@@ -129,7 +122,7 @@
     font-family: "Poppins", sans-serif;
     color: #745bc7 !important;
     font-size: 23px;
-    font-weight: 300;
+    font-weight: 500;
     letter-spacing: 0.10em;
 }
 
@@ -140,15 +133,17 @@
 .header__navegation-button {
     position: relative;
     transition: 0.5s ease;
+    width: 50px;
+    top: 5px;
 }
 
 .header__navegation-button img {
-    width: 45px;
-    object-fit: cover;
+    max-width: 100%;
+    height: auto;
     transition: 0.5s ease;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
 
     #header {
         height: 50px;

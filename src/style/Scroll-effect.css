@@ -1,0 +1,11 @@
+.teste {
+  opacity: 0;
+  -webkit-transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+  transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1)
+}
+
+.teste.active {
+  opacity: 1;
+  -webkit-transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+  transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1)
+}
